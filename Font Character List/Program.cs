@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Media;
 using System.Windows;
 
@@ -65,7 +66,9 @@ namespace Font_Character_List
             }
             
 
-            var charactersList = font.CharacterToGlyphMap.Keys;
+            var charactersList = font.CharacterToGlyphMap.Keys.ToList();
+            charactersList.Sort();
+
             string charactersString = "";
             foreach (var characterInt in charactersList)
             {
@@ -75,7 +78,7 @@ namespace Font_Character_List
 
             Clipboard.SetText(charactersString, TextDataFormat.UnicodeText);
 
-            WriteLineColor("done. All font characters copied to clipboard", ConsoleColor.Green);
+            WriteLineColor($"done. All font characters copied to clipboard ({charactersString.Length} characters)", ConsoleColor.Green);
         }
 
         static void WriteLineColor(string text, ConsoleColor color = ConsoleColor.Cyan)
