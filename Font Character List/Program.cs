@@ -12,7 +12,7 @@ namespace Font_Character_List
             start:
 
             Console.WriteLine("enter path of font");
-            string path = Console.ReadLine();
+            string path = Console.ReadLine().Replace("\"", "");
 
             GlyphTypeface font;
             try
@@ -34,7 +34,8 @@ namespace Font_Character_List
             }
 
             Clipboard.SetText(charactersString, TextDataFormat.UnicodeText);
-            Console.WriteLine("All font characters copied to cliboard");
+            Console.WriteLine("all font characters copied to clipboard");
+            Console.WriteLine();
 
             goto start;
         }
