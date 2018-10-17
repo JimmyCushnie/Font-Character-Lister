@@ -34,7 +34,7 @@ namespace Font_Character_List
 
         static void CopyAtPath(string path)
         {
-            WriteLineColor("analyzing font at path...");
+            WriteLineColor("analyzing font...");
 
             GlyphTypeface font;
             try
